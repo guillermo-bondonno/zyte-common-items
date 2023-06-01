@@ -19,6 +19,7 @@ from zyte_common_items.components import (
     OpeningHoursItem,
     ParentPlace,
     RealEstateArea,
+    RealEstateUnit,
     StarRating,
 )
 from zyte_common_items.util import url_to_str
@@ -666,7 +667,7 @@ class RealEstate(Item):
     address: Optional[Address] = None
 
     #: Real estate area details.
-    area: Optional[RealEstateArea] = None
+    area: Optional[List[RealEstateArea]] = None
 
     #: The total number of bathrooms in the real estate.
     numberOfBathroomsTotal: Optional[int] = None
@@ -706,6 +707,9 @@ class RealEstate(Item):
 
     #: The year the real estate was built.
     yearBuilt: Optional[int] = None
+
+    #: The sub-units of the property. They can vary by price, area, number of rooms, etc.
+    units: Optional[List[RealEstateUnit]] = None
 
     #: The URL of the virtual tour of the real estate.
     virtualTourUrl: Optional[str] = None

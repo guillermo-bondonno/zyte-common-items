@@ -1,5 +1,5 @@
 """Classes for data nested within items."""
-from typing import Optional
+from typing import List, Optional
 
 import attrs
 
@@ -285,3 +285,38 @@ class RealEstateArea(Item):
 
     #: Area in the raw format, as it appears on the website.
     raw: str
+
+
+@attrs.define(kw_only=True)
+class RealEstateUnit(Item):
+    """Information about the individual units that are part of this real estate."""
+
+    #: The identifier of the real estate unit, usually assigned by the seller and unique within a website, similar to product SKU.
+    realEstateId: str
+
+    #: The offer price of the real estate.
+    price: str
+
+    #: Real estate area details.
+    area: Optional[List[RealEstateArea]] = None
+
+    #: A list of URL values of all images of the unit.
+    images: Optional[List[Image]] = None
+
+    #: The description of the unit.
+    description: Optional[str] = None
+
+    #: The total number of bathrooms in the unit.
+    numberOfBathroomsTotal: Optional[int] = None
+
+    #: The number of bedrooms in the unit.
+    numberOfBedrooms: Optional[int] = None
+
+    #: The number of full bathrooms in the unit.
+    numberOfFullBathrooms: Optional[int] = None
+
+    #: The number of partial bathrooms in the unit.
+    numberOfPartialBathrooms: Optional[int] = None
+
+    #: The number of rooms (excluding bathrooms and closets) of the unit.
+    numberOfRooms: Optional[int] = None

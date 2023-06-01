@@ -17,6 +17,7 @@ from .components import (
     OpeningHoursItem,
     ParentPlace,
     RealEstateArea,
+    RealEstateUnit,
     StarRating,
 )
 from .items import (
